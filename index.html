@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>崔 淇悳 | Java バックエンドエンジニア ポートフォリオ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --bg2:#f8fafc; --card:#ffffff; --line:#e2e8f0; --line2:#cbd5e1;
+  --text:#0f172a; --muted:#475569; --muted2:#64748b;
+  --accent:#0f766e; --accent-bg:#ccfbf1; --accent-dark:#115e59;
+  --navy:#0f172a; --chip:#f1f5f9;
+  --ok:#ecfdf5;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0b1220; --bg2:#0f172a; --card:#111827; --line:#1e293b; --line2:#334155; --text:#f1f5f9; --muted:#cbd5e1; --muted2:#94a3b8; --accent:#2dd4bf; --accent-bg:#134e4a; --accent-dark:#5eead4; --navy:#f1f5f9; --chip:#1e293b; --ok:#052e22; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Noto Sans JP",system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;font-size:16px}
+a{color:var(--accent-dark)}
+.mono{font-family:"IBM Plex Mono",monospace}
+.wrap{max-width:1020px;margin:0 auto;padding:0 20px}
+.topnav{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--bg) 92%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topnav-in{display:flex;align-items:center;justify-content:space-between;min-height:56px;gap:12px;flex-wrap:wrap;padding:6px 0}
+.logo{font-weight:900;letter-spacing:.02em;font-size:15px}
+.logo span{color:var(--accent)}
+.navlinks{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+.navlinks a{font-size:13px;font-weight:700;color:var(--muted);text-decoration:none;padding:10px 10px;border-radius:999px;min-height:40px;display:inline-flex;align-items:center}
+.navlinks a:hover{background:var(--chip);color:var(--text)}
+.hero{padding:52px 0 36px;border-bottom:1px solid var(--line);background:var(--bg2)}
+.hero-grid{display:grid;grid-template-columns:1.55fr .85fr;gap:28px;align-items:start}
+.kicker{font-size:12px;letter-spacing:.14em;font-weight:800;color:var(--accent);text-transform:uppercase}
+h1{font-size:42px;line-height:1.15;margin:10px 0 6px;font-weight:900;letter-spacing:-.02em}
+.h1-sub{font-size:18px;font-weight:700;color:var(--muted);line-height:1.5}
+.lead{margin-top:18px;color:var(--muted);font-size:15.5px;max-width:640px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.badge{font-size:12.5px;font-weight:700;padding:7px 11px;border:1px solid var(--line);background:var(--card);border-radius:999px}
+.badge strong{color:var(--accent-dark)}
+.avail{background:var(--navy);color:#fff;border-radius:16px;padding:20px}
+@media (prefers-color-scheme: dark){.avail{background:#1e293b;border:1px solid var(--line2)}}
+.avail h3{margin:0 0 4px;font-size:13px;letter-spacing:.08em;opacity:.8}
+.avail .price{font-size:28px;font-weight:900;line-height:1.2}
+.avail .price small{font-size:13px;font-weight:500;opacity:.8}
+.avail ul{margin:14px 0 0;padding:0;list-style:none;font-size:13.5px;line-height:1.9}
+.avail li{display:flex;gap:8px}
+.avail li::before{content:"✓";color:#5eead4;font-weight:900;flex-shrink:0}
+.avail .note{margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.18);font-size:12.5px;opacity:.85;line-height:1.6}
+section{padding:38px 0;border-bottom:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:18px}
+h2{font-size:22px;margin:0;font-weight:900;letter-spacing:-.01em}
+.sec-head p{margin:0;font-size:13px;color:var(--muted2)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:18px}
+.card h3{margin:0 0 8px;font-size:15px}
+.card p{margin:0;color:var(--muted);font-size:14px}
+.domains{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.domain{border:1px solid var(--line);border-radius:12px;padding:14px 12px;text-align:center;background:var(--card)}
+.domain b{display:block;font-size:14px}
+.domain span{font-size:12px;color:var(--muted2)}
+.skill-group{margin-bottom:16px}
+.skill-group:last-child{margin-bottom:0}
+.skill-group h4{margin:0 0 10px;font-size:13px;letter-spacing:.06em;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:7px;background:var(--chip);border:1px solid var(--line);padding:7px 10px;border-radius:999px;font-size:13px;font-weight:600;min-height:36px}
+.chip i{font-style:normal;font-family:"IBM Plex Mono",monospace;font-size:11px;background:var(--bg);border:1px solid var(--line);padding:2px 6px;border-radius:999px;color:var(--muted)}
+.chip.main{background:var(--accent-bg);border-color:color-mix(in srgb, var(--accent) 30%, var(--line))}
+.project{border:1px solid var(--line);border-radius:16px;background:var(--card);overflow:hidden;display:flex;flex-direction:column}
+.project-top{padding:18px 18px 0}
+.proj-meta{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.proj-no{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.08em}
+.private{font-size:11px;font-weight:800;letter-spacing:.04em;padding:5px 8px;border-radius:999px;background:var(--chip);border:1px solid var(--line);color:var(--muted)}
+.project h3{margin:10px 0 4px;font-size:18px;line-height:1.3}
+.project h3 span{font-size:12px;color:var(--muted2);font-weight:500;display:block;margin-top:2px}
+.project-body{padding:0 18px 18px;display:flex;flex-direction:column;gap:12px;flex:1}
+.problem{font-size:13px;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.problem b{font-size:11px;letter-spacing:.06em;color:var(--accent-dark);display:block;margin-bottom:2px}
+.problem p{margin:0;color:var(--muted);font-size:13px;line-height:1.65}
+.project-desc{font-size:14px;color:var(--muted);margin:0;line-height:1.7}
+.tech{margin-top:auto;padding-top:4px}
+.tech-label{font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--muted2);margin-bottom:6px}
+.gh-slot{margin-top:12px;border-top:1px dashed var(--line2);padding-top:12px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.gh-slot span{font-size:12.5px;color:var(--muted2)}
+.gh-disabled{font-size:12px;font-weight:700;padding:9px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted2);background:var(--bg2);min-height:38px;display:inline-flex;align-items:center;white-space:nowrap}
+table{width:100%;border-collapse:collapse;font-size:14px;overflow:hidden;border:1px solid var(--line);border-radius:12px}
+th,td{padding:13px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{width:180px;background:var(--bg2);font-size:13px;white-space:nowrap}
+tr:last-child th,tr:last-child td{border-bottom:none}
+td{color:var(--muted)} td b{color:var(--text)}
+.timeline{display:grid;gap:0}
+.tl{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.tl:last-child{border-bottom:none}
+.tl time{font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:600;color:var(--accent-dark);padding-top:2px}
+.tl h4{margin:0 0 4px;font-size:14.5px}
+.tl p{margin:0;font-size:13.5px;color:var(--muted)}
+footer{padding:28px 0 44px;color:var(--muted2);font-size:12.5px}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:820px){
+  .hero-grid,.grid2,.grid3{grid-template-columns:1fr}
+  .domains{grid-template-columns:repeat(2,1fr)}
+  h1{font-size:34px}
+  .navlinks a{padding:8px 7px;font-size:12px}
+  th{width:118px}
+  .tl{grid-template-columns:1fr;gap:4px}
+}
+</style>
+</head>
+<body>
+<header class="topnav">
+  <div class="wrap topnav-in">
+    <div class="logo">CHOI KIDUC <span>/ PORTFOLIO</span></div>
+    <nav class="navlinks" aria-label="ページ内リンク">
+      <a href="#about">概要</a><a href="#skills">スキル</a><a href="#projects">制作物</a><a href="#career">経歴</a><a href="#conditions">稼働条件</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">Backend Engineer — Java / Spring Boot</div>
+      <h1>崔 淇悳（チェ ギドク）</h1>
+      <p class="h1-sub">金融・証券・保険領域を中心に16年以上。<br>設計から開発・保守、PL / PMまで対応できるバックエンドエンジニア。</p>
+      <p class="lead">Javaを軸に、業務システムの新規開発・改修・保守を一貫して担当してきました。要件定義から基本設計、詳細設計、実装、テスト、リリース後の保守まで対応可能です。現在はフリーランスとして本業と並行し、フルリモートの副業案件を探しています。</p>
+      <div class="badges">
+        <span class="badge">経験 <strong>16年以上</strong></span>
+        <span class="badge">主言語 <strong>Java</strong></span>
+        <span class="badge">PL / PM 経験 <strong>2回</strong></span>
+        <span class="badge">拠点 <strong>東京</strong></span>
+        <span class="badge">対応 <strong>フルリモートのみ</strong></span>
+      </div>
+    </div>
+    <aside class="avail" aria-label="稼働条件サマリー">
+      <h3>副業・業務委託 — 稼働条件</h3>
+      <div class="price">¥300,000 <small>/ 月（税別）</small></div>
+      <ul>
+        <li>週2〜3日（16〜24時間 / 週）</li>
+        <li>平日は 19:00以降、土日・祝日対応可</li>
+        <li>フルリモート必須</li>
+        <li>即日開始可</li>
+      </ul>
+      <p class="note">※ 時給換算 約¥4,000 が目安です。<br>※ 平日日中の定例会議・コアタイム参加は不可です。非同期連絡（チャット / メール）には平日日中も対応します。</p>
+    </aside>
+  </div>
+</div>
+
+<main class="wrap">
+  <section id="about">
+    <div class="sec-head"><h2>概要・強み</h2><p>ABOUT</p></div>
+    <div class="grid2">
+      <div class="card">
+        <h3>業務システム開発の全工程に対応</h3>
+        <p>金融・証券・保険・会計・人材派遣など、正確性と堅牢性が求められる領域で開発と保守を経験。障害対応や既存システムの改修など、読み解きが必要な案件も得意です。</p>
+      </div>
+      <div class="card">
+        <h3>リモート前提の進め方</h3>
+        <p>成果物ベースでの進行、チャット・チケットによる非同期コミュニケーション、進捗の可視化を前提に動きます。夜間・週末稼働でも納期と品質を担保できるよう、タスクを小さく区切って報告します。</p>
+      </div>
+    </div>
+    <div style="height:14px"></div>
+    <div class="domains">
+      <div class="domain"><b>金融</b><span>Finance</span></div>
+      <div class="domain"><b>証券</b><span>Securities</span></div>
+      <div class="domain"><b>保険</b><span>Insurance</span></div>
+      <div class="domain"><b>会計</b><span>Accounting</span></div>
+      <div class="domain"><b>人材派遣</b><span>Staffing</span></div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head"><h2>スキル</h2><p>SKILLS — 年数は実務経験の目安</p></div>
+    <div class="card">
+      <div class="skill-group">
+        <h4>バックエンド / 言語</h4>
+        <div class="chips">
+          <span class="chip main">Java <i>10年+</i></span>
+          <span class="chip main">Spring / Spring Boot <i>5年</i></span>
+          <span class="chip">Struts</span><span class="chip">MyBatis</span><span class="chip">jOOQ</span>
+          <span class="chip">TypeScript <i>3年</i></span><span class="chip">Python <i>3年</i></span>
+          <span class="chip">PHP <i>3年</i></span><span class="chip">Shell <i>3年</i></span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>データベース</h4>
+        <div class="chips">
+          <span class="chip">Oracle <i>5年</i></span><span class="chip">PostgreSQL <i>5年</i></span>
+          <span class="chip">MySQL <i>5年</i></span><span class="chip">SQL Server <i>5年</i></span><span class="chip">SQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>フロントエンド</h4>
+        <div class="chips">
+          <span class="chip">JavaScript <i>5年</i></span><span class="chip">jQuery</span><span class="chip">JSP</span>
+          <span class="chip">HTML / CSS</span><span class="chip">WordPress <i>3年</i></span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>インフラ / ツール</h4>
+        <div class="chips">
+          <span class="chip">AWS <i>3年</i></span><span class="chip">Docker <i>3年</i></span><span class="chip">Kubernetes <i>3年</i></span>
+          <span class="chip">CircleCI <i>3年</i></span><span class="chip">Linux <i>5年</i></span><span class="chip">Windows <i>5年</i></span>
+          <span class="chip">Maven</span><span class="chip">Tomcat</span><span class="chip">Eclipse</span><span class="chip">Git / GitHub</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="sec-head"><h2>制作物・個人プロジェクト</h2><p>PERSONAL PROJECT</p></div>
+    <p style="margin:0 0 16px;color:var(--muted);font-size:14px">業務だけではなく、日常の面倒な作業を自分でツール化して解決しています。実際に自分が毎日使っているツールです。</p>
+    <article class="project" style="max-width:760px">
+      <div class="project-top">
+        <div class="proj-meta"><span class="proj-no">PERSONAL PROJECT</span><span class="private">個人開発</span></div>
+        <h3>RakuPayToMF <span>キャッシュレス決済の利用明細 → MoneyForward ME 自動記帳ツール</span></h3>
+      </div>
+      <div class="project-body">
+        <div class="problem"><b>解決した課題</b><p>複数のキャッシュレス決済を使い分けるたびに、利用明細を見ながら家計簿へ手入力する作業が発生していた。</p></div>
+        <p class="project-desc">日常で使う複数のキャッシュレス決済サービスの利用明細を、MoneyForward ME へ自動で記帳するツールです。当初は1サービスの自動化から始め、対応サービスを広げてきました。ほとんどのサービスは利用通知メールを転送して自動解析し、日時・店舗名・金額を抽出して記帳します。一部のサービスは明細CSVを取り込む方式で対応しています。メール形式の揺れに対応するパース処理や、重複記帳を防ぐチェックも含めて自作しています。</p>
+        <div class="tech">
+          <div class="tech-label">使用技術</div>
+          <div class="chips"><span class="chip">TypeScript</span><span class="chip">メール解析</span><span class="chip">CSV取込</span><span class="chip">MoneyForward ME 連携</span><span class="chip">自動化</span></div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section id="career">
+    <div class="sec-head"><h2>職務経歴の概要</h2><p>CAREER</p></div>
+    <div class="timeline">
+      <div class="tl"><time>2025年4月 — 現在</time><div><h4>証券会社向け Webシステム開発プロジェクト</h4><p>証券会社の投資家向けWebシステムの開発・改修を担当。バックエンド開発に加え、投資家向けWeb画面のレスポンシブ対応（スマートフォン・タブレットなど複数デバイスで見やすく操作できる画面改修）を行いました。既存画面の構造を踏まえた上で、表示崩れや操作性の改善を含めて対応しています。現在も同プロジェクトに参画中です。</p></div></div>
+      <div class="tl"><time>2026 — 現在</time><div><h4>フリーランス（個人事業主）として活動</h4><p>日本でフリーランスとして活動中。上記プロジェクトと並行し、副業としてフルリモート案件を募集しています。</p></div></div>
+      <div class="tl"><time>〜 2025年3月</time><div><h4>バックエンド・Webシステム開発（16年以上）</h4><p>金融・証券・保険・会計・人材派遣業界の業務システム開発・保守を担当。要件定義から設計、開発、テスト、保守運用まで一貫して経験し、PL / PM を2回務めました。</p></div></div>
+      <div class="tl"><time>対応工程</time><div><h4>要件定義 / 基本設計 / 詳細設計 / 実装 / テスト / 保守</h4><p>既存システムの改修・マイグレーション、バッチ処理、帳票、外部連携、DB設計・SQLチューニングなど。</p></div></div>
+    </div>
+  </section>
+
+  <section id="conditions">
+    <div class="sec-head"><h2>稼働条件</h2><p>CONDITIONS — レバテック登録内容と同一</p></div>
+    <table>
+      <tr><th>契約形態</th><td><b>業務委託</b></td></tr>
+      <tr><th>稼働</th><td><b>週2〜3日 / 週16〜24時間</b>（月70〜104時間程度）</td></tr>
+      <tr><th>稼働時間帯</th><td><b>平日 19:00以降、土日・祝日</b> ／ 平日日中の定例会議・コアタイム参加は不可</td></tr>
+      <tr><th>勤務形態</th><td><b>フルリモート必須</b>（常駐・出社案件は不可）</td></tr>
+      <tr><th>希望単価</th><td><b>月額 ¥300,000（税別）</b> — 時給換算 約¥4,000 目安。稼働日数に応じて応相談</td></tr>
+      <tr><th>開始時期</th><td><b>即日可</b></td></tr>
+      <tr><th>得意な案件</th><td>Java / Spring Boot の API・業務システム開発、既存システム改修・保守、短期案件、成果物ベースの開発</td></tr>
+    </table>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Choi Kiduc — Java Backend Engineer Portfolio</span>
+    <span>最終更新：2026年11月 ／ 本ページはレバテック フリーランス登録用ポートフォリオです</span>
+  </div>
+</footer>
+</body>
+</html>
